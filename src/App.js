@@ -19,7 +19,7 @@ function App() {
     if (e.target.classList.contains('icon')) {
       console.log(e.target.getAttribute('data-label'));
       setTitle(e.target.getAttribute('data-label'));
-      const getValue = e.target.getAttribute('data-label');
+      const getValue = e.target.dataset.label;
       setValue(getValue);
       console.log(person.value);
     }
@@ -66,9 +66,6 @@ function App() {
   useEffect(() => {
     getUser();
   }, []);
-  if (loading) {
-    return <h2>Page is Loading</h2>;
-  }
   return (
     <main>
       <div className="block bcg-black"></div>
