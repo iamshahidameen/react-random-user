@@ -20,8 +20,7 @@ function App() {
       console.log(e.target.getAttribute('data-label'));
       setTitle(e.target.getAttribute('data-label'));
       const getValue = e.target.dataset.label;
-      setValue(getValue);
-      console.log(person.value);
+      setValue(person[getValue]);
     }
   };
 
@@ -31,7 +30,6 @@ function App() {
       const resp = await fetch(url);
       const data = await resp.json();
       const person = data.results[0];
-      console.log(person);
       const { phone, email } = person;
       const { large: image } = person.picture;
       const {
@@ -54,7 +52,6 @@ function App() {
         street: `${number} ${name}`,
         name: `${first} ${last}`,
       };
-      console.log(newPerson, 'newObje');
       setPerson(newPerson);
       setLoading(false);
       setTitle('name');
